@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import MusicPlayer from "./components/ui/MusicPlayer"; // Import ini
 
@@ -32,6 +33,7 @@ export default function RootLayout({
         <div className="relative z-10 min-h-screen">
           {children}
         </div>
+        <Analytics />
       </body>
     </html>
   );
