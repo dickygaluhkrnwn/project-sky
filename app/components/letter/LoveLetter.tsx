@@ -14,7 +14,6 @@ export default function LoveLetter() {
 
   const handleOpen = () => {
     setIsOpen(true);
-    // Confetti ledakan saat surat terbuka
     const duration = 3000;
     const end = Date.now() + duration;
 
@@ -24,7 +23,7 @@ export default function LoveLetter() {
         angle: 60,
         spread: 55,
         origin: { x: 0 },
-        colors: ['#ffd700', '#ffffff'] // Gold & White
+        colors: ['#ffd700', '#ffffff'] 
       });
       confetti({
         particleCount: 5,
@@ -44,7 +43,7 @@ export default function LoveLetter() {
   return (
     <div className="w-full max-w-2xl relative">
       
-      {/* Amplop / Gulungan Tertutup */}
+      {/* Amplop Tertutup */}
       {!isOpen && (
         <motion.div 
           initial={{ scale: 0.8, opacity: 0 }}
@@ -57,11 +56,9 @@ export default function LoveLetter() {
             whileTap={{ scale: 0.95 }}
             className="w-64 h-40 bg-gradient-to-br from-gold-100 to-gold-300 rounded-lg shadow-[0_0_50px_rgba(255,215,0,0.5)] flex items-center justify-center relative overflow-hidden border-4 border-white/50"
           >
-            {/* Segel Lilin */}
             <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center shadow-lg border-2 border-red-300">
               <Heart className="text-white fill-white" />
             </div>
-            {/* Tekstur kilau */}
             <div className="absolute inset-0 bg-white/20 rotate-45 transform translate-y-1/2" />
           </motion.button>
           <p className="text-white font-serif text-xl animate-pulse">Open the Gift</p>
@@ -76,7 +73,6 @@ export default function LoveLetter() {
           transition={{ duration: 0.8, type: "spring" }}
           className="bg-[#fffdfa] rounded-xl shadow-2xl overflow-hidden border-8 border-double border-gold-200 relative p-8 md:p-12"
         >
-          {/* Dekorasi Sudut */}
           <Sparkles className="absolute top-4 left-4 text-gold-400" />
           <Sparkles className="absolute top-4 right-4 text-gold-400" />
           
@@ -97,20 +93,19 @@ export default function LoveLetter() {
               ))}
             </div>
 
-            {/* Signature */}
             <div className="mt-12 pt-8 border-t border-lilac-100 flex flex-col items-center gap-6">
               <div className="font-serif text-lilac-800 text-xl text-center">
                 With all the lights in the sky, <br />
                 <span className="font-bold">Your Playmate</span>
               </div>
 
+              {/* FIX: Ubah teks agar sesuai konteks bahwa Home Space baru terbuka */}
               <Button onClick={() => router.push('/sky-home')} variant="outline" className="mt-4 border-gold-400 text-gold-600 hover:bg-gold-50">
-                <Home size={18} /> Kembali ke Home Space
+                <Home size={18} /> Jelajahi Home Space
               </Button>
             </div>
           </div>
 
-          {/* Background Texture Surat */}
           <div className="absolute inset-0 opacity-5 bg-[url('/noise.svg')] pointer-events-none" />
         </motion.div>
       )}

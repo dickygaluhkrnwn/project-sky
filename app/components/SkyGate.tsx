@@ -16,8 +16,7 @@ export default function SkyGate() {
     
     setIsLit(true);
 
-    // FIX: Coba nyalakan musik global saat user berinteraksi pertama kali (klik lilin)
-    // Ini mem-bypass kebijakan autoplay browser
+    // Trigger musik global
     const audio = document.getElementById('global-bgm') as HTMLAudioElement;
     if (audio && audio.paused) {
       audio.play().catch(e => console.log("Audio play error", e));
@@ -28,8 +27,9 @@ export default function SkyGate() {
       setIsExpanding(true);
     }, 1500);
 
+    // FIX: Redirect langsung ke Game Memory (Awal Perjalanan)
     setTimeout(() => {
-      router.push('/sky-home');
+      router.push('/games/memory');
     }, 2500);
   };
 
